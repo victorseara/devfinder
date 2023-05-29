@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    <h1>Hello, vue.js</h1>
+    <h1 class="text-3xl">Hello, vue.js</h1>
   </main>
 </template>
