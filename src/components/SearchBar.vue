@@ -3,6 +3,7 @@ import { Icon } from '@iconify/vue';
 
 type Props = {
   modelValue: string;
+  errorMessage?: string;
 };
 
 defineProps<Props>();
@@ -27,12 +28,15 @@ const onSubmit = () => {
       <input
         type="search"
         id="default-search"
-        class="block w-full py-6 px-16 text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500"
+        class="block w-full py-6 px-16 text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500 outline-1 outline-blue-500"
         placeholder="Search GitHub username…"
         required
         :value="modelValue"
         @input="updateValue"
       />
+      <span class="absolute flex items-center inset-y-4 right-32 text-red-500 font-bold">{{
+        errorMessage
+      }}</span>
       <button
         type="button"
         class="text-white absolute right-3 inset-y-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3"
