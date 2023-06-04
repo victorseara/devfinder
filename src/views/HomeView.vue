@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SearchBar, UserProfile } from '@/components';
+import { PageHeader, SearchBar, UserProfile } from '@/components';
 import { useGithubProfile } from '@/composables/useGithubProfile';
 import { onMounted, ref } from 'vue';
 
@@ -16,8 +16,10 @@ onMounted(async () => {
 </script>
 <template>
   <div class="min-h-screen flex flex-col sm:justify-center sm:items-center bg-slate-100">
-    <div class="container flex flex-col gap-4 max-w-2xl lg:max-w-3xl px-4 py-6">
-      <div>Page header</div>
+    <div class="container flex flex-col gap-4 sm:gap-6 max-w-2xl lg:max-w-3xl px-4 py-6">
+      <div>
+        <PageHeader />
+      </div>
       <div>
         <SearchBar v-model="searchText" @submit="onSubmit" :error="error?.message" />
       </div>

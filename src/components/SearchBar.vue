@@ -28,7 +28,7 @@ const onSubmit = () => {
       <input
         type="search"
         id="default-search"
-        class="block w-full py-6 px-12 sm:px-16 text-xs sm:text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500 outline-1 outline-blue-500"
+        class="block shadow-md w-full py-6 px-12 sm:px-16 text-xs sm:text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500 outline-1 outline-blue-500"
         placeholder="Search GitHub username…"
         required
         :value="modelValue"

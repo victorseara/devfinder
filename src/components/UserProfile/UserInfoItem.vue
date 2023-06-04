@@ -13,7 +13,7 @@ const NOT_AVAILABLE_CLASSES = 'opacity-50';
 const dynamicStyle = computed(() => !props.content && NOT_AVAILABLE_CLASSES);
 </script>
 <template>
-  <li class="flex gap-2 items-center" :class="dynamicStyle">
+  <li class="flex gap-2 items-center text-sm" :class="dynamicStyle">
     <Icon class="text-lg text-slate-500" :icon="icon" />
     <span>{{ content || 'Not available' }}</span>
   </li>

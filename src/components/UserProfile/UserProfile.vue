@@ -27,7 +27,7 @@ defineProps<Props>();
     <div class="grid grid-cols-8 col-span-8 gap-4">
       <ProfileHeader :avatar="avatar" :created-at="createdAt" :username="username" :name="name" />
     </div>
-    <div class="col-span-full lg:grid lg:col-start-3 lg:-mt-8">
+    <div class="col-span-full lg:grid lg:col-start-3 lg:-mt-2">
       <p class="text-slate-600" :class="!bio && 'opacity-60'">
         {{ bio || 'This profile has no bio' }}
       </p>
