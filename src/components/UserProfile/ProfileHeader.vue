@@ -12,7 +12,6 @@ const props = defineProps<Props>();
 
 const joinedAt = DateUtils.format(new Date(props.createdAt), {
   dateStyle: 'medium',
-  formatMatcher: 'best fit',
 });
 </script>
 <template>

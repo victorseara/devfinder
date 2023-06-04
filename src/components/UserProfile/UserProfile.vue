@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ProfileHeader from './ProfileHeader.vue';
-import UserInfoList from './UserInfoList.vue';
-import UserStatsList from './UserStatsList.vue';
+import UserInfoItem from './UserInfoItem.vue';
+import UserStatsItem from './UserStatsItem.vue';
 
 type Props = {
   avatar: string;
@@ -33,10 +33,25 @@ defineProps<Props>();
       </p>
     </div>
     <div class="grid grid-flow-col my-5 sm:my-10 col-span-8 lg:col-start-3">
-      <UserStatsList :repos="repos" :followers="followers" :following="following" />
+      <ul
+        class="flex justify-around w-full px-8 py-4 bg-slate-100 rounded-xl text-center sm:text-start"
+      >
+        <UserStatsItem label="Repos">
+          {{ repos }}
+        </UserStatsItem>
+        <UserStatsItem label="Followers">
+          {{ followers }}
+        </UserStatsItem>
+        <UserStatsItem label="Following">
+          {{ following }}
+        </UserStatsItem>
+      </ul>
     </div>
-    <div class="col-span-8 lg:col-start-3">
-      <UserInfoList :location="location" :twitter="twitter" :blog="website" :company="company" />
-    </div>
+    <ul class="col-span-8 lg:col-start-3 grid sm:grid-cols-2 gap-5">
+      <UserInfoItem icon="octicon:location-16" :content="location" />
+      <UserInfoItem icon="fa6-brands:twitter" :content="twitter" />
+      <UserInfoItem icon="octicon:link-16" :content="website" />
+      <UserInfoItem icon="octicon:organization-16" :content="company" />
+    </ul>
   </div>
 </template>

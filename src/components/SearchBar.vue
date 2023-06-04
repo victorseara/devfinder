@@ -22,13 +22,13 @@ const onSubmit = () => {
   <form @submit.prevent="onSubmit">
     <label for="default-search" class="sr-only">Search</label>
     <div class="relative">
-      <div class="absolute inset-y-0 left-8 flex items-center pointer-events-none">
+      <div class="absolute inset-y-0 left-4 sm:left-8 flex items-center pointer-events-none">
         <Icon icon="octicon:search-16" class="text-2xl text-blue-500" />
       </div>
       <input
         type="search"
         id="default-search"
-        class="block w-full py-6 px-16 text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500 outline-1 outline-blue-500"
+        class="block w-full py-6 px-12 sm:px-16 text-xs sm:text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500 outline-1 outline-blue-500"
         placeholder="Search GitHub username…"
         required
         :value="modelValue"
@@ -39,7 +39,7 @@ const onSubmit = () => {
       }}</span>
       <button
         type="button"
-        class="text-white absolute right-3 inset-y-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3"
+        class="text-white absolute right-3 inset-y-2 sm:inset-y-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-4 sm:text-sm sm:px-6"
       >
         Search
       </button>
