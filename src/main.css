@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    @apply text-slate-800;
-  }
+.dark-mode {
+  --df-bg: #141d2f;
+  --df-text: #ffffff;
+  --df-text-light: #ffffff;
+  --df-text-gray: #ffffff;
+  --df-blue: #0079ff;
+  --df-blue-dark: #60abff;
+  --df-surface: #1e2a47;
+}
+
+.light-mode {
+  --df-bg: #f6f8ff;
+  --df-text: #222731;
+  --df-text-light: #4b6a9b;
+  --df-text-gray: #697c9a;
+  --df-blue: #0079ff;
+  --df-blue-dark: #60abff;
+  --df-surface: #fff;
 }

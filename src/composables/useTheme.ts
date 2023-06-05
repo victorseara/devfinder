@@ -1,4 +1,4 @@
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 
 const THEMES = {
   LIGHT: {
@@ -28,21 +28,16 @@ export const useTheme = () => {
 
   const displayButton = computed(() => (isDarkModeEnabled.value ? THEMES.LIGHT : THEMES.DARK));
 
-  const hasThemeApplied = (node: HTMLElement) => {
-    return Object.entries(THEMES).some(([_, value]) => node.classList.contains(value.class));
-  };
-
   watch(
     () => currentTheme.value.class,
-    (newValue, oldValue) => {
-      const body = document.body;
-      if (!hasThemeApplied(body)) {
-        body.classList.add(newValue);
-        return;
-      }
-      body?.classList.replace(oldValue, newValue);
+    (newValue: string, oldValue: string) => {
+      document.body.classList.replace(oldValue, newValue);
     }
   );
+
+  onMounted(() => {
+    document.body.classList.add(currentTheme.value.class);
+  });
 
   return { theme: currentTheme, onToggleTheme, displayButton };
 };

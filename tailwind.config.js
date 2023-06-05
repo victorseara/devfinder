@@ -1,52 +1,22 @@
-import twThemer from 'tailwindcss-themer';
+/** @type {import('tailwindcss').Config} */
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.vue'],
-  plugins: [
-    twThemer({
-      defaultTheme: {
-        extend: {
-          fontFamily: {
-            sans: defaultTheme.fontFamily.mono,
-          },
-        },
+  theme: {
+    fontFamily: {
+      sans: defaultTheme.fontFamily.mono,
+    },
+    extend: {
+      colors: {
+        'df-bg': 'var(--df-bg)',
+        'df-text': 'var(--df-text)',
+        'df-text-light': 'var(--df-text-light)',
+        'df-text-gray': 'var(--df-text-gray)',
+        'df-blue': 'var(--df-blue)',
+        'df-blue-dark': 'var(--df-blue-dark)',
+        'df-surface': 'var(--df-surface)',
       },
-      themes: [
-        {
-          name: 'light',
-          selectors: ['.light-mode'],
-          mediaQuery: '@media (prefers-color-scheme: light)',
-          extend: {
-            colors: {
-              'df-bg': '#F6F8FF',
-              'df-text': '#222731',
-              'df-text-light': '#4B6A9B',
-              'df-text-gray': '#697C9A',
-              'df-blue': '#0079FF',
-              'df-blue-dark': '#60ABFF',
-              'df-surface': '#FFF',
-            },
-          },
-        },
-        {
-          name: 'dark-theme',
-          selectors: ['.dark-mode'],
-          mediaQuery: '@media (prefers-color-scheme: dark)',
-          extend: {
-            colors: {
-              'df-bg': '#141D2F',
-              'df-text': '#FFFFFF',
-              'df-text-light': '#FFFFFF',
-              'df-text-gray': '#FFFFFF',
-              'df-blue': '#0079FF',
-              'df-blue-dark': '#60ABFF',
-              'df-surface': '#1E2A47',
-            },
-          },
-        },
-      ],
-    }),
-  ],
+    },
+  },
 };
