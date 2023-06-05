@@ -4,6 +4,7 @@ import { Icon } from '@iconify/vue';
 type Props = {
   modelValue: string;
   error?: string;
+  isLoading?: boolean;
 };
 
 defineProps<Props>();
@@ -35,11 +36,14 @@ const onSubmit = () => {
         @input="updateValue"
       />
       <div
-        class="gap-2 text-xs sm:text-sm absolute flex items-center inset-y-4 right-24 sm:right-32 text-red-500 font-bold"
+        class="gap-2 text-xs sm:text-sm absolute flex items-center inset-y-4 right-24 sm:right-32"
       >
-        <span v-show="error">
+        <span v-if="error" class="text-red-500 font-bold">
           <span class="hidden sm:flex">{{ error }}</span>
           <Icon icon="octicon:x-circle-fill-16" class="sm:hidden flex text-lg" />
+        </span>
+        <span v-else-if="isLoading">
+          <Icon icon="svg-spinners:3-dots-bounce" class="text-2xl text-df-blue" />
         </span>
       </div>
       <button

@@ -56,6 +56,7 @@ export const useGithubProfile = () => {
   const isLoading = ref(false);
 
   const getUserByUsername = async (username = 'octocat') => {
+    isLoading.value = true;
     const response = await fetch(`https://api.github.com/users/${username}`);
 
     if (!response.ok) {

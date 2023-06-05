@@ -4,7 +4,7 @@ import { useGithubProfile } from '@/composables/useGithubProfile';
 import { onMounted, ref } from 'vue';
 
 const searchText = ref('');
-const { data, fetch, error } = useGithubProfile();
+const { data, fetch, isLoading, error } = useGithubProfile();
 
 const onSubmit = async () => {
   await fetch(searchText.value);
@@ -21,7 +21,12 @@ onMounted(async () => {
         <PageHeader />
       </div>
       <div>
-        <SearchBar v-model="searchText" @submit="onSubmit" :error="error?.message" />
+        <SearchBar
+          v-model="searchText"
+          @submit="onSubmit"
+          :error="error?.message"
+          :is-loading="isLoading"
+        />
       </div>
       <div v-if="data">
         <UserProfile v-bind="data" />
