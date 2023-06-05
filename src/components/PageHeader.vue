@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import { useTheme } from '@/composables';
 import { Icon } from '@iconify/vue';
+
+const { onToggleTheme, displayButton } = useTheme();
 </script>
 <template>
   <div class="flex justify-between items-center font-bold">
     <span class="sm:text-2xl lg:text-3xl text-xl">devfinder</span>
     <button
-      class="flex gap-2 items-center px-6 py-3 rounded-lg text-slate-500 hover:bg-slate-200 uppercase"
+      @click="onToggleTheme"
+      class="flex gap-2 items-center px-6 py-3 rounded-lg text-df-text-gray transition-colors ease-in-out hover:text-df-text uppercase"
     >
-      dark <Icon icon="iconamoon:mode-dark-fill" class="text-xl" />
+      {{ displayButton.name }} <Icon :icon="displayButton.icon" class="text-xl" />
     </button>
   </div>
 </template>

@@ -23,6 +23,8 @@ const joinedAt = DateUtils.format(new Date(props.createdAt), {
       {{ name || username }}
     </div>
     <div class="lg:order-3 text-blue-500 lg:text-lg">@{{ username }}</div>
-    <div class="lg:order-2 lg:justify-self-end self-center py-2 lg:py-0">Joined {{ joinedAt }}</div>
+    <div class="text-df-text-gray lg:order-2 lg:justify-self-end self-center py-2 lg:py-0">
+      Joined {{ joinedAt }}
+    </div>
   </div>
 </template>

@@ -15,7 +15,7 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <div class="min-h-screen flex flex-col sm:justify-center sm:items-center bg-slate-100">
+  <div class="min-h-screen flex flex-col sm:justify-center sm:items-center bg-df-bg text-df-text">
     <div class="container flex flex-col gap-4 sm:gap-6 max-w-2xl lg:max-w-3xl px-4 py-6">
       <div>
         <PageHeader />

@@ -22,19 +22,19 @@ defineProps<Props>();
 </script>
 <template>
   <div
-    class="grid grid-cols-8 sm:grid-cols-8 drop-shadow-xl text-xs px-6 py-8 bg-white rounded-2xl gap-8 lg:gap-0 sm:text-base sm:p-8 lg:p-12"
+    class="grid grid-cols-8 sm:grid-cols-8 drop-shadow-xl text-xs px-6 py-8 bg-df-surface rounded-2xl gap-8 lg:gap-0 sm:text-base sm:p-8 lg:p-12"
   >
     <div class="grid grid-cols-8 col-span-8 gap-4">
       <ProfileHeader :avatar="avatar" :created-at="createdAt" :username="username" :name="name" />
     </div>
     <div class="col-span-full lg:grid lg:col-start-3 lg:-mt-2">
-      <p class="text-slate-600" :class="!bio && 'opacity-60'">
+      <p class="text-df-text-light" :class="!bio && 'opacity-75'">
         {{ bio || 'This profile has no bio' }}
       </p>
     </div>
     <div class="grid grid-flow-col my-5 sm:my-10 col-span-8 lg:col-start-3">
       <ul
-        class="flex justify-around w-full px-8 py-4 bg-slate-100 rounded-xl text-center sm:text-start"
+        class="flex justify-around w-full px-8 py-4 bg-df-bg rounded-xl text-center sm:text-start"
       >
         <UserStatsItem label="Repos">
           {{ repos }}

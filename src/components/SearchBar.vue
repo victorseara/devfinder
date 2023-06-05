@@ -23,12 +23,12 @@ const onSubmit = () => {
     <label for="default-search" class="sr-only">Search</label>
     <div class="relative">
       <div class="absolute inset-y-0 left-4 sm:left-8 flex items-center pointer-events-none">
-        <Icon icon="octicon:search-16" class="text-2xl text-blue-500" />
+        <Icon icon="octicon:search-16" class="text-2xl text-df-blue" />
       </div>
       <input
         type="search"
         id="default-search"
-        class="block shadow-md w-full py-6 px-12 sm:px-16 text-xs sm:text-sm text-gray-900 rounded-2xl bg-white focus:ring-blue-500 focus:border-blue-500 outline-1 outline-blue-500"
+        class="block shadow-md w-full py-6 px-12 sm:px-16 text-xs sm:text-sm text-df-text-light rounded-2xl bg-df-surface focus:ring-blue-500 focus:border-df-blue outline-1 outline-df-blue"
         placeholder="Search GitHub username…"
         required
         :value="modelValue"
@@ -44,7 +44,7 @@ const onSubmit = () => {
       </div>
       <button
         type="button"
-        class="text-white absolute right-3 inset-y-2 sm:inset-y-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-4 sm:text-sm sm:px-6"
+        class="text-white font-bold absolute right-3 inset-y-2 sm:inset-y-2 bg-df-blue transition-colors ease-in-out hover:bg-df-blue-dark focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-xs px-4 sm:text-sm sm:px-6"
       >
         Search
       </button>
