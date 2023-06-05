@@ -1,4 +1,4 @@
-import { computed, onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 const THEMES = {
   LIGHT: {
@@ -20,13 +20,9 @@ export const useTheme = () => {
 
   const currentTheme = ref(initialTheme);
 
-  const isDarkModeEnabled = computed(() => currentTheme.value.name === 'Dark');
-
   const onToggleTheme = () => {
-    currentTheme.value = isDarkModeEnabled.value ? THEMES.LIGHT : THEMES.DARK;
+    currentTheme.value = currentTheme.value.name === 'Dark' ? THEMES.LIGHT : THEMES.DARK;
   };
-
-  const displayButton = computed(() => (isDarkModeEnabled.value ? THEMES.LIGHT : THEMES.DARK));
 
   watch(
     () => currentTheme.value.class,
@@ -39,5 +35,5 @@ export const useTheme = () => {
     document.body.classList.add(currentTheme.value.class);
   });
 
-  return { theme: currentTheme, onToggleTheme, displayButton };
+  return { theme: currentTheme, onToggleTheme };
 };

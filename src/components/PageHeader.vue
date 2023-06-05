@@ -2,7 +2,7 @@
 import { useTheme } from '@/composables';
 import { Icon } from '@iconify/vue';
 
-const { onToggleTheme, displayButton } = useTheme();
+const { onToggleTheme, theme } = useTheme();
 </script>
 <template>
   <div class="flex justify-between items-center font-bold">
@@ -11,7 +11,7 @@ const { onToggleTheme, displayButton } = useTheme();
       @click="onToggleTheme"
       class="flex gap-2 items-center px-6 py-3 rounded-lg text-df-text-gray transition-colors ease-in-out hover:text-df-text uppercase"
     >
-      {{ displayButton.name }} <Icon :icon="displayButton.icon" class="text-xl" />
+      {{ theme.name }} <Icon :icon="theme.icon" class="text-xl" />
     </button>
   </div>
 </template>
