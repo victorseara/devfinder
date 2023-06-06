@@ -10,6 +10,8 @@ type Props = {
 
 const props = defineProps<Props>();
 
+const GITHUB_URL = 'https://github.com/';
+
 const joinedAt = DateUtils.format(new Date(props.createdAt), {
   dateStyle: 'medium',
 });
@@ -22,7 +24,12 @@ const joinedAt = DateUtils.format(new Date(props.createdAt), {
     <div class="lg:order-1 font-bold sm:text-2xl lg:text-3xl text-xl">
       {{ name || username }}
     </div>
-    <div class="lg:order-3 text-blue-500 lg:text-lg">@{{ username }}</div>
+    <a
+      :href="GITHUB_URL + username"
+      class="lg:order-3 text-blue-500 lg:text-lg hover:underline underline-offset-4"
+    >
+      @{{ username }}
+    </a>
     <div
       class="text-df-text-gray lg:order-2 lg:justify-self-end lg:self-start self-center py-2 lg:py-0"
     >
