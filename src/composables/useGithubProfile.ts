@@ -50,6 +50,13 @@ export interface GithubProfile {
   website: string | null;
 }
 
+const sanitizeText = (value: string) => {
+  return value
+    .match(/[A-Za-z]/gi)
+    ?.join('')
+    .toLocaleLowerCase();
+};
+
 export const useGithubProfile = () => {
   const data = ref(null as GithubProfile | null);
   const error = ref(null as Error | null);
@@ -57,7 +64,7 @@ export const useGithubProfile = () => {
 
   const getUserByUsername = async (username = 'octocat') => {
     isLoading.value = true;
-    const response = await fetch(`https://api.github.com/users/${username}`);
+    const response = await fetch(`https://api.github.com/users/${sanitizeText(username)}`);
 
     if (!response.ok) {
       isLoading.value = false;
