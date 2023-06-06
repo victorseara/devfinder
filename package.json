@@ -1,5 +1,6 @@
 {
   "name": "devfinder",
+  "homepage": "https://github.com/victorseara/devfinder",
   "version": "0.0.0",
   "private": true,
   "scripts": {
