@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import DateUtils from '@/utils/DateUtils';
+import { computed } from 'vue';
 
 type Props = {
   avatar: string;
@@ -12,9 +13,11 @@ const props = defineProps<Props>();
 
 const GITHUB_URL = 'https://github.com/';
 
-const joinedAt = DateUtils.format(new Date(props.createdAt), {
-  dateStyle: 'medium',
-});
+const joinedAt = computed(() =>
+  DateUtils.format(new Date(props.createdAt), {
+    dateStyle: 'medium',
+  })
+);
 </script>
 <template>
   <div class="col-span-2">
