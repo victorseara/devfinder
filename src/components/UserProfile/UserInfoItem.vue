@@ -20,9 +20,12 @@ const dynamicStyle = computed(() => {
 });
 </script>
 <template>
-  <li class="flex gap-2 text-sm" :class="dynamicStyle">
+  <li
+    class="flex gap-2 text-sm overflow-hidden whitespace-nowrap text-ellipsis"
+    :class="dynamicStyle"
+  >
     <Icon class="flex-shrink-0 text-xl" :icon="icon" />
-    <component class="overflow-clip text-ellipsis" :is="isLink ? 'a' : 'span'" :href="href">
+    <component :is="isLink ? 'a' : 'span'" :href="href">
       {{ content || 'Not available' }}
     </component>
   </li>
