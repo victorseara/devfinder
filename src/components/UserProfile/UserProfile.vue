@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FormatUtils from '@/utils/FormatUtils';
 import { computed } from 'vue';
 import ProfileHeader from './ProfileHeader.vue';
 import UserInfoItem from './UserInfoItem.vue';
@@ -21,20 +22,13 @@ type Props = {
 
 const props = defineProps<Props>();
 
-const websiteURL = computed(() => {
-  if (!props.website) return null;
-  const protocol = /http/i;
+const websiteURL = computed(() => FormatUtils.createWebsiteUrl(props.website));
 
-  try {
-    const url = new URL(props.website.match(protocol) ? props.website : 'https://' + props.website);
-    return url.toString();
-  } catch {
-    return null;
-  }
-});
+const companyUrl = computed(() =>
+  props.company ? FormatUtils.createProfileUrl(props.company.slice(1, props.company.length)) : null
+);
 
-const TWITTER_URL = 'https://twitter.com/';
-const GITHUB_URL = 'https://github.com/';
+const twitterUrl = computed(() => FormatUtils.createTwitterUrl(props.twitter));
 </script>
 <template>
   <div
@@ -65,17 +59,9 @@ const GITHUB_URL = 'https://github.com/';
     </div>
     <ul class="col-span-8 lg:col-start-3 grid sm:grid-cols-2 gap-6">
       <UserInfoItem icon="octicon:location-16" :content="location" />
-      <UserInfoItem
-        icon="fa6-brands:twitter"
-        :content="twitter"
-        :href="twitter && TWITTER_URL + twitter"
-      />
+      <UserInfoItem icon="fa6-brands:twitter" :content="twitter" :href="twitterUrl" />
       <UserInfoItem icon="octicon:link-16" :content="website" :href="websiteURL" />
-      <UserInfoItem
-        icon="octicon:organization-16"
-        :content="company"
-        :href="company && GITHUB_URL + company.slice(1, company.length)"
-      />
+      <UserInfoItem icon="octicon:organization-16" :content="company" :href="companyUrl" />
     </ul>
   </div>
 </template>

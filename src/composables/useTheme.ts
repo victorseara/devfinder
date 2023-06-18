@@ -1,6 +1,6 @@
 import { onMounted, ref, watch } from 'vue';
 
-const THEMES = {
+export const THEMES = {
   LIGHT: {
     class: 'light-mode',
     name: 'Light',
@@ -13,8 +13,10 @@ const THEMES = {
   },
 } as const;
 
+export const PREFERED_COLOR_SCHEME_MEDIA = '(prefers-color-scheme: dark)';
+
 export const useTheme = () => {
-  const initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const initialTheme = window.matchMedia(PREFERED_COLOR_SCHEME_MEDIA).matches
     ? THEMES.DARK
     : THEMES.LIGHT;
 

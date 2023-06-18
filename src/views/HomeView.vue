@@ -4,14 +4,14 @@ import { useGithubProfile } from '@/composables/useGithubProfile';
 import { onMounted, ref } from 'vue';
 
 const searchText = ref('');
-const { data, fetch, isLoading, error } = useGithubProfile();
+const { data, doFetch, isLoading, error } = useGithubProfile();
 
 const onSubmit = async () => {
-  await fetch(searchText.value);
+  await doFetch(searchText.value);
 };
 
 onMounted(async () => {
-  await fetch();
+  await doFetch();
 });
 </script>
 <template>
