@@ -1,4 +1,4 @@
-import { getUserByUsername, type GithubProfileResponse } from '@/api/github';
+import { getUserByUsername, type GithubProfileResponse } from '@/api';
 import { ref } from 'vue';
 
 export interface GithubProfile {
